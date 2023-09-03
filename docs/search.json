@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Analysis & Information Extraction",
+    "section": "",
+    "text": "In this course we will learn the different steps regarding the data analysis process using R programming language, learning the skills needed while understanding how to do a proper data analytics work.\nWelcome Slides & Course Information"
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Data Analysis & Information Extraction",
+    "section": "",
+    "text": "In this course we will learn the different steps regarding the data analysis process using R programming language, learning the skills needed while understanding how to do a proper data analytics work.\nWelcome Slides & Course Information"
+  },
+  {
+    "objectID": "units.html",
+    "href": "units.html",
+    "title": "Course Units",
+    "section": "",
+    "text": "This is the complete course topics we will cover:"
+  },
+  {
+    "objectID": "units.html#unit-1-programming-with-r",
+    "href": "units.html#unit-1-programming-with-r",
+    "title": "Course Units",
+    "section": "Unit 1: Programming with R",
+    "text": "Unit 1: Programming with R\nLearn programming basics with R: data types, data structures, variables, programming structures, etc. Find here the slides."
+  },
+  {
+    "objectID": "units.html#unit-2-exploratory-data-analysis",
+    "href": "units.html#unit-2-exploratory-data-analysis",
+    "title": "Course Units",
+    "section": "Unit 2: Exploratory Data Analysis",
+    "text": "Unit 2: Exploratory Data Analysis"
+  },
+  {
+    "objectID": "units.html#unit-3-data-wrangling",
+    "href": "units.html#unit-3-data-wrangling",
+    "title": "Course Units",
+    "section": "Unit 3: Data Wrangling",
+    "text": "Unit 3: Data Wrangling"
+  },
+  {
+    "objectID": "units.html#unit-4-modelling",
+    "href": "units.html#unit-4-modelling",
+    "title": "Course Units",
+    "section": "Unit 4: Modelling",
+    "text": "Unit 4: Modelling"
+  },
+  {
+    "objectID": "units.html#unit-5-communication",
+    "href": "units.html#unit-5-communication",
+    "title": "Course Units",
+    "section": "Unit 5: Communication",
+    "text": "Unit 5: Communication"
+  }
+]

@@ -1,0 +1,19 @@
+---
+title: "Course Units"
+format: 
+  html 
+---
+
+This is the complete course topics we will cover:
+
+## Unit 1: Programming with R
+
+Learn programming basics with R: data types, data structures, variables, programming structures, etc. Find [here](https://carviagu.github.io/data_analysis_slides/unit1.html) the slides. 
+
+## Unit 2: Exploratory Data Analysis
+
+## Unit 3: Data Wrangling
+
+## Unit 4: Modelling
+
+## Unit 5: Communication

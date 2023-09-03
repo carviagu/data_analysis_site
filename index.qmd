@@ -1,0 +1,18 @@
+---
+title: "Data Analysis & Information Extraction"
+subtitle: "CUNEF Universidad"
+format: 
+  html 
+---
+
+## Course Overview
+
+In this course we will learn the different steps regarding the data analysis process using R programming language, learning the skills needed while 
+understanding how to do a proper data analytics work.
+
+[Welcome Slides & Course Information](https://carviagu.github.io/data_analysis_slides/#/title-slide)
+
+
+
+
+
