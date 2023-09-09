@@ -12,8 +12,24 @@ Learn programming basics with R: data types, data structures, variables, program
 
 ## Unit 2: Exploratory Data Analysis
 
+Learn data visualization, transformation and exploration with the help of the *tidyverse* ecosystem using *ggplot2* and *dplyr* to explore and transform your data, the unit is divided in three chapters...
+
+* Part 1. [Visualization](https://carviagu.github.io/data_analysis_slides/unit21.html)
+* Part 2. [Transformation](https://carviagu.github.io/data_analysis_slides/unit22.html)
+* Part 3. [Exporatory Data Analysis](https://carviagu.github.io/data_analysis_slides/unit23.html)
+
 ## Unit 3: Data Wrangling
+
+Wrangle your data using *tidyverse*'s *tidyr* package, work with relational data using *dplyr* and wrangle special data types with the help of *forcats*, *lubridate* or *stringr*. Also learn how to import different sources of data into your enviornment with the help of libraries such as *readr* or *readxl*.
+
+* Part 1. [Importing Data](https://carviagu.github.io/data_analysis_slides/unit31.html)
+* Part 2. [Organizing Data](https://carviagu.github.io/data_analysis_slides/unit32.html)
+* Part 3. [Wrangling Data Types](https://carviagu.github.io/data_analysis_slides/unit33.html)
 
 ## Unit 4: Modelling
 
+Basic introduction to data modelling with the use of linear models such as linear regression. Find [here](https://carviagu.github.io/data_analysis_slides/unit4.html) the slides. 
+
 ## Unit 5: Communication
+
+Learn how to develop reproducible reports and automate your documentation tasks to improve share of results.  Find [here](https://carviagu.github.io/data_analysis_slides/unit5.html) the slides.

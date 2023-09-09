@@ -19,7 +19,8 @@ website:
           text: Home
         - href: units.qmd
           text: Units
-  
+        - href: reference.qmd
+          text: References
 
 format:
   html:

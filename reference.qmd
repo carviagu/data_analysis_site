@@ -1,0 +1,11 @@
+---
+title: "Reference Material"
+format: 
+  html 
+---
+
+The course content is based on the book **R for Data Science** from Wickham and Grolemund. Units and content has been ordered following 2017 edition, while some content has been updated with the 2023 edition. 
+
+You can find the full online book [here](https://r4ds.had.co.nz).
+
+In addition, *tidyverse* documentation for the different packages used in the course has been referenced. [Tidyverse site](https://www.tidyverse.org)

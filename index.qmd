@@ -12,6 +12,18 @@ understanding how to do a proper data analytics work.
 
 [Welcome Slides & Course Information](https://carviagu.github.io/data_analysis_slides/#/title-slide)
 
+## Content
+
+The course is divided in five different lessons focused on the different steps for data analysis task:
+
+  1. Programming with R
+  2. Exploratory Data Analysis
+  3. Data Wrangling
+  4. Modelling
+  5. Communication
+
+
+
 
 
 

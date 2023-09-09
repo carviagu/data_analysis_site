@@ -32,27 +32,41 @@
     "href": "units.html#unit-2-exploratory-data-analysis",
     "title": "Course Units",
     "section": "Unit 2: Exploratory Data Analysis",
-    "text": "Unit 2: Exploratory Data Analysis"
+    "text": "Unit 2: Exploratory Data Analysis\nLearn data visualization, transformation and exploration with the help of the tidyverse ecosystem using ggplot2 and dplyr to explore and transform your data, the unit is divided in three chapters…\n\nPart 1. Visualization\nPart 2. Transformation\nPart 3. Exporatory Data Analysis"
   },
   {
     "objectID": "units.html#unit-3-data-wrangling",
     "href": "units.html#unit-3-data-wrangling",
     "title": "Course Units",
     "section": "Unit 3: Data Wrangling",
-    "text": "Unit 3: Data Wrangling"
+    "text": "Unit 3: Data Wrangling\nWrangle your data using tidyverse’s tidyr package, work with relational data using dplyr and wrangle special data types with the help of forcats, lubridate or stringr. Also learn how to import different sources of data into your enviornment with the help of libraries such as readr or readxl.\n\nPart 1. Importing Data\nPart 2. Organizing Data\nPart 3. Wrangling Data Types"
   },
   {
     "objectID": "units.html#unit-4-modelling",
     "href": "units.html#unit-4-modelling",
     "title": "Course Units",
     "section": "Unit 4: Modelling",
-    "text": "Unit 4: Modelling"
+    "text": "Unit 4: Modelling\nBasic introduction to data modelling with the use of linear models such as linear regression. Find here the slides."
   },
   {
     "objectID": "units.html#unit-5-communication",
     "href": "units.html#unit-5-communication",
     "title": "Course Units",
     "section": "Unit 5: Communication",
-    "text": "Unit 5: Communication"
+    "text": "Unit 5: Communication\nLearn how to develop reproducible reports and automate your documentation tasks to improve share of results. Find here the slides."
+  },
+  {
+    "objectID": "index.html#content",
+    "href": "index.html#content",
+    "title": "Data Analysis & Information Extraction",
+    "section": "Content",
+    "text": "Content\nThe course is divided in five different lessons focused on the different steps for data analysis task:\n\nProgramming with R\nExploratory Data Analysis\nData Wrangling\nModelling\nCommunication"
+  },
+  {
+    "objectID": "reference.html",
+    "href": "reference.html",
+    "title": "Reference Material",
+    "section": "",
+    "text": "The course content is based on the book R for Data Science from Wickham and Grolemund. Units and content has been ordered following 2017 edition, while some content has been updated with the 2023 edition.\nYou can find the full online book here.\nIn addition, tidyverse documentation for the different packages used in the course has been referenced. Tidyverse site"
   }
 ]
