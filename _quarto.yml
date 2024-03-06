@@ -3,21 +3,24 @@ project:
   output-dir: docs
   
 website:
-    title: "Lógica Matemática"
+    title: "Data Analysis & Information Extraction"
     page-footer: 
       background: light
-      left: 2024 Carviagu. Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
+      left: 2023 Carviagu. Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
       right: |
         [![](resources/images/logo2.png){fig-alt="CUNEF" width=65px}](https://cunef.edu)
         
     navbar:
       background: light
+      logo: resources/images/subject_logo.png
       title: false
       left:
         - href: index.qmd
           text: Home
         - href: units.qmd
-          text: Sesiones
+          text: Units
+        - href: reference.qmd
+          text: References
 
 format:
   html:

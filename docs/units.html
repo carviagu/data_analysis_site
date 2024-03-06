@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lógica Matemática - Sesiones</title>
+<title>Data Analysis &amp; Information Extraction - Course Units</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -60,38 +58,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-subtitle','listing-categories','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -102,6 +69,11 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./resources/images/subject_logo.png" alt="" class="navbar-logo">
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -114,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./units.html" rel="" target="" aria-current="page">
- <span class="menu-text">Sesiones</span></a>
+ <span class="menu-text">Units</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
@@ -124,110 +96,77 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Sesiones</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#unit-1-programming-with-r" id="toc-unit-1-programming-with-r" class="nav-link active" data-scroll-target="#unit-1-programming-with-r">Unit 1: Programming with R</a></li>
+  <li><a href="#unit-2-exploratory-data-analysis" id="toc-unit-2-exploratory-data-analysis" class="nav-link" data-scroll-target="#unit-2-exploratory-data-analysis">Unit 2: Exploratory Data Analysis</a></li>
+  <li><a href="#unit-3-data-wrangling" id="toc-unit-3-data-wrangling" class="nav-link" data-scroll-target="#unit-3-data-wrangling">Unit 3: Data Wrangling</a></li>
+  <li><a href="#unit-4-modelling" id="toc-unit-4-modelling" class="nav-link" data-scroll-target="#unit-4-modelling">Unit 4: Modelling</a></li>
+  <li><a href="#unit-5-communication" id="toc-unit-5-communication" class="nav-link" data-scroll-target="#unit-5-communication">Unit 5: Communication</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Course Units</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<p>Estas son las sesiones de prácticas, entra en cada una para ver las explicaciones, ejercicios e instrucciones paso a paso.</p>
-<p>Recuerda que después de completar la sesión deberás de realizar el test disponible en <a href="https://cunef.instructure.com">canvas</a>.</p>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This is the complete course topics we will cover:</p>
+<section id="unit-1-programming-with-r" class="level2">
+<h2 class="anchored" data-anchor-id="unit-1-programming-with-r">Unit 1: Programming with R</h2>
+<p>Learn programming basics with R: data types, data structures, variables, programming structures, etc. Find <a href="https://carviagu.github.io/data_analysis_slides/unit1.html">here</a> the slides.</p>
+</section>
+<section id="unit-2-exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="unit-2-exploratory-data-analysis">Unit 2: Exploratory Data Analysis</h2>
+<p>Learn data visualization, transformation and exploration with the help of the <em>tidyverse</em> ecosystem using <em>ggplot2</em> and <em>dplyr</em> to explore and transform your data, the unit is divided in three chapters…</p>
+<ul>
+<li>Part 1. <a href="https://carviagu.github.io/data_analysis_slides/unit21.html">Visualization</a></li>
+<li>Part 2. <a href="https://carviagu.github.io/data_analysis_slides/unit22.html">Transformation</a></li>
+<li>Part 3. <a href="https://carviagu.github.io/data_analysis_slides/unit23.html">Exporatory Data Analysis</a></li>
+</ul>
+</section>
+<section id="unit-3-data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="unit-3-data-wrangling">Unit 3: Data Wrangling</h2>
+<p>Wrangle your data using <em>tidyverse</em>’s <em>tidyr</em> package, work with relational data using <em>dplyr</em> and wrangle special data types with the help of <em>forcats</em>, <em>lubridate</em> or <em>stringr</em>. Also learn how to import different sources of data into your enviornment with the help of libraries such as <em>readr</em> or <em>readxl</em>.</p>
+<ul>
+<li>Part 1. <a href="https://carviagu.github.io/data_analysis_slides/unit31.html">Importing Data</a></li>
+<li>Part 2. <a href="https://carviagu.github.io/data_analysis_slides/unit32.html">Organizing Data</a></li>
+<li>Part 3. <a href="https://carviagu.github.io/data_analysis_slides/unit33.html">Wrangling Data Types</a></li>
+</ul>
+</section>
+<section id="unit-4-modelling" class="level2">
+<h2 class="anchored" data-anchor-id="unit-4-modelling">Unit 4: Modelling</h2>
+<p>Basic introduction to data modelling with the use of linear models such as linear regression. Find <a href="https://carviagu.github.io/data_analysis_slides/unit4.html">here</a> the slides.</p>
+</section>
+<section id="unit-5-communication" class="level2">
+<h2 class="anchored" data-anchor-id="unit-5-communication">Unit 5: Communication</h2>
+<p>Learn how to develop reproducible reports and automate your documentation tasks to improve share of results. Find <a href="https://carviagu.github.io/data_analysis_slides/unit5.html">here</a> the slides.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="PROLOG,VisualStudio,Sistemas Expertos,Bash" data-listing-file-modified-sort="1709759340326" data-listing-reading-time-sort="12">
-<div class="thumbnail">
-<p><a href="./sesiones/01-intro/index.html"> <img src="./sesiones/01-intro/featured.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./sesiones/01-intro/index.html">
-<h3 class="no-anchor listing-title">
-Introducción a PROLOG
-</h3>
-<div class="listing-subtitle">
-Aprende lo indispensable para trabajar con PROLOG
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('PROLOG'); return false;">
-PROLOG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('VisualStudio'); return false;">
-VisualStudio
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Sistemas Expertos'); return false;">
-Sistemas Expertos
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Bash'); return false;">
-Bash
-</div>
-</div>
-<a href="./sesiones/01-intro/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./sesiones/01-intro/index.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="PROLOG,VisualStudio,Sintaxis" data-listing-file-modified-sort="1709313159217" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./sesiones/02-sintaxis/index.html"> <img src="./sesiones/02-sintaxis/featured.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./sesiones/02-sintaxis/index.html">
-<h3 class="no-anchor listing-title">
-Sintaxis en PROLOG
-</h3>
-<div class="listing-subtitle">
-Aprende a escribir código básico con PROLOG
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('PROLOG'); return false;">
-PROLOG
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('VisualStudio'); return false;">
-VisualStudio
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Sintaxis'); return false;">
-Sintaxis
-</div>
-</div>
-<a href="./sesiones/02-sintaxis/index.html"> </a>
-</div>
-<div class="metadata">
-<a href="./sesiones/02-sintaxis/index.html"> </a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -464,7 +403,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">2024 Carviagu. Powered with <a href="https://quarto.org/">Quarto</a> and <a href="https://pages.github.com/">GitHub</a></div>   
+    <div class="nav-footer-left">2023 Carviagu. Powered with <a href="https://quarto.org/">Quarto</a> and <a href="https://pages.github.com/">GitHub</a></div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>

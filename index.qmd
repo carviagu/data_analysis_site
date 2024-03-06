@@ -1,23 +1,26 @@
 ---
-title: "Lógica Matemática"
+title: "Data Analysis & Information Extraction"
 subtitle: "CUNEF Universidad"
 format: 
   html 
 ---
 
-## Prácticas de Lógica Matemática
+## Course Overview
 
-Bienvenido al sitio de las prácticas de lógica matemática con PROLOG. En esta plataforma encontrarás todo el contenido de las sesiones con guías paso a paso del trabajo que debes realizar a lo largo de las mismas en cada sesión. 
+In this course we will learn the different steps regarding the data analysis process using R programming language, learning the skills needed while 
+understanding how to do a proper data analytics work.
 
-## Sesiones
+[Welcome Slides & Course Information](https://carviagu.github.io/data_analysis_slides/#/title-slide)
 
-Las prácticas se dividen en 5 sesiones:
+## Content
 
-  1. Introducción a PROLOG y el entorno
-  2. Sintaxis de PROLOG
-  3. Ejercicios de PROLOG I
-  4. Ejercicios de PROLOG II
-  5. Caso Práctico
+The course is divided in five different lessons focused on the different steps for data analysis task:
+
+  1. Programming with R
+  2. Exploratory Data Analysis
+  3. Data Wrangling
+  4. Modelling
+  5. Communication
 
 
 
