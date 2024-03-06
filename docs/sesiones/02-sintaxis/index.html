@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Segunda Sesión">
 
-<title>Lógica Matemática</title>
+<title>Lógica Matemática - Sintaxis de PROLOG</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,11 +77,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./units.html" rel="" target="">
+    <a class="nav-link" href="../../units.html" rel="" target="">
  <span class="menu-text">Sesiones</span></a>
   </li>  
 </ul>
@@ -95,28 +96,31 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#prácticas-de-lógica-matemática" id="toc-prácticas-de-lógica-matemática" class="nav-link active" data-scroll-target="#prácticas-de-lógica-matemática">Prácticas de Lógica Matemática</a></li>
-  <li><a href="#sesiones" id="toc-sesiones" class="nav-link" data-scroll-target="#sesiones">Sesiones</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lógica Matemática</h1>
-<p class="subtitle lead">CUNEF Universidad</p>
-</div>
+<h1 class="title">Sintaxis de PROLOG</h1>
+<p class="subtitle lead">Comienza a programar con PROLOG</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">PROLOG</div>
+    <div class="quarto-category">VisualStudio</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Segunda Sesión </p>
+          </div>
+  </div>
     
   
     
@@ -125,23 +129,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="prácticas-de-lógica-matemática" class="level2">
-<h2 class="anchored" data-anchor-id="prácticas-de-lógica-matemática">Prácticas de Lógica Matemática</h2>
-<p>Bienvenido al sitio de las prácticas de lógica matemática con PROLOG. En esta plataforma encontrarás todo el contenido de las sesiones con guías paso a paso del trabajo que debes realizar a lo largo de las mismas en cada sesión.</p>
-</section>
-<section id="sesiones" class="level2">
-<h2 class="anchored" data-anchor-id="sesiones">Sesiones</h2>
-<p>Las prácticas se dividen en 5 sesiones:</p>
-<ol type="1">
-<li>Introducción a PROLOG y el entorno</li>
-<li>Sintaxis de PROLOG</li>
-<li>Ejercicios de PROLOG I</li>
-<li>Ejercicios de PROLOG II</li>
-<li>Caso Práctico</li>
-</ol>
+<p><img src="icons8-candado-80.png" class="img-fluid" data-fig-align="center"> ::: {align=“center”}</p>
+<p><strong>Parece que esta sesión está bloqueada de momento, vuelve más adelante.</strong></p>
+<p>:::</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
