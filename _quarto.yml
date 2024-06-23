@@ -6,7 +6,7 @@ website:
     title: "Data Analysis & Information Extraction"
     page-footer: 
       background: light
-      left: 2023 Carviagu. Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
+      left: 2024 [Carviagu](https://carviagu.github.io). Powered with [Quarto](https://quarto.org/) and [GitHub](https://pages.github.com/)
       right: |
         [![](resources/images/logo2.png){fig-alt="CUNEF" width=65px}](https://cunef.edu)
         

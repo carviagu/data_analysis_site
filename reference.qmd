@@ -4,8 +4,27 @@ format:
   html 
 ---
 
+## Books and manuals
+
 The course content is based on the book **R for Data Science** from Wickham and Grolemund. Units and content has been ordered following 2017 edition, while some content has been updated with the 2023 edition. 
 
 You can find the full online book [here](https://r4ds.had.co.nz).
 
 In addition, *tidyverse* documentation for the different packages used in the course has been referenced. [Tidyverse site](https://www.tidyverse.org)
+
+## Packages covered in the course
+
+* From the tidyverse world...
+  * `ggplot2` for data visualization
+  * `dplyr` for data manipulation
+  * `tidyr` for data wrangling
+  * `readr` for importing 
+  * `readxl` for importing excel files
+  * `stringr` for managing strings
+  * `forcats` for managing factors
+  * `lubridate` for managing dates
+  * `modelr` and `broom` for learning basic modelling
+
+* Another topics covered include...
+  * `Rmarkdown` and `Quarto` for reporting
+  * `infer` for testing statistical inference and boostrapping

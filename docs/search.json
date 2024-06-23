@@ -68,5 +68,19 @@
     "title": "Reference Material",
     "section": "",
     "text": "The course content is based on the book R for Data Science from Wickham and Grolemund. Units and content has been ordered following 2017 edition, while some content has been updated with the 2023 edition.\nYou can find the full online book here.\nIn addition, tidyverse documentation for the different packages used in the course has been referenced. Tidyverse site"
+  },
+  {
+    "objectID": "reference.html#books-and-manuals",
+    "href": "reference.html#books-and-manuals",
+    "title": "Reference Material",
+    "section": "",
+    "text": "The course content is based on the book R for Data Science from Wickham and Grolemund. Units and content has been ordered following 2017 edition, while some content has been updated with the 2023 edition.\nYou can find the full online book here.\nIn addition, tidyverse documentation for the different packages used in the course has been referenced. Tidyverse site"
+  },
+  {
+    "objectID": "reference.html#packages-covered-in-the-course",
+    "href": "reference.html#packages-covered-in-the-course",
+    "title": "Reference Material",
+    "section": "Packages covered in the course",
+    "text": "Packages covered in the course\n\nFrom the tidyverse world…\n\nggplot2 for data visualization\ndplyr for data manipulation\ntidyr for data wrangling\nreadr for importing\nreadxl for importing excel files\nstringr for managing strings\nforcats for managing factors\nlubridate for managing dates\nmodelr and broom for learning basic modelling\n\nAnother topics covered include…\n\nRmarkdown and Quarto for reporting\ninfer for testing statistical inference and boostrapping"
   }
 ]
