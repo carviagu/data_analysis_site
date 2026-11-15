@@ -1,0 +1,563 @@
+---
+title: "Final Project: Data Analysis with Claude Code"
+subtitle: "What determines the price of an Airbnb listing in Madrid?"
+author: "Data Analysis & Information Extraction — Course closing activity"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-copy: true
+    code-overflow: wrap
+    smooth-scroll: true
+    embed-resources: true
+    callout-appearance: simple
+---
+
+::: {.callout-note icon=false}
+**Task:** complete a data analysis project from start to finish using Claude Code, an AI assistant that runs in the terminal. For better understanding it is suggested to do it in groups of 2 students.
+
+**Operating system:** every step that differs between systems is shown in two tabs, **macOS** and **Windows**. Click the tab for your system. Your browser remembers the choice for the whole page.
+:::
+
+# Overview {#overview}
+
+**Claude Code** is an AI assistant that you run from the terminal. It understands requests written in natural language, reads and edits the files of your project, runs commands and code (in any language or tool), and fixes its own errors under your supervision.
+
+In this session you will use it to solve a real data-analysis project from start to finish, combining everything you learned in the course:
+
+> import data → wrangling → exploration → modelling → communication
+
+**Research question:** *What determines the price of an Airbnb listing in Madrid?*
+
+**Data:** [Inside Airbnb – Madrid](https://insideairbnb.com/get-the-data/) (most recent snapshot): `listings.csv.gz`, `reviews.csv.gz` and `calendar.csv.gz`.
+
+## Plan and time budget
+
+| Step | Content | Time |
+|-----:|---------------------------------------------------------|---------|
+| 0 | Install Claude Code and start a session | 10 min |
+| 1 | Import and clean the data (`CLAUDE.md`, permission modes) | 20 min |
+| 2 | Create a skill (`eda-report`) | 15 min |
+| 3 | Use agents (Explore + your own `reviewer`) | 20 min |
+| 4 | Solve the project: EDA, model, report | 20 min |
+| 5 | *(Extra)* Reproducibility with Git | rest |
+
+::: {.callout-important}
+## Your role: supervisor
+
+Claude writes and runs the code, but **you** are responsible for the analysis. Read the plans, the scripts and the outputs, and question anything that looks wrong. Only the work you can explain will be considered yours.
+:::
+
+# Step 0 — Install and start (10 min) {#step-0}
+
+## 0.1 Check that R, RStudio and Quarto are installed
+
+Open RStudio and run this in the console:
+
+```r
+R.version.string
+quarto::quarto_version()   # only works if the 'quarto' R package is installed
+```
+
+You can also check Quarto from the terminal with `quarto --version`. Recent versions of RStudio already include Quarto. If it is missing, install it from [quarto.org/docs/get-started](https://quarto.org/docs/get-started/).
+
+## 0.2 Open a terminal
+
+::: {.panel-tabset group="os"}
+## macOS
+
+Open **Terminal** (Spotlight → type "Terminal"). You can also use the **Terminal** tab inside RStudio.
+
+## Windows
+
+Open **PowerShell** (Start menu → type "PowerShell"). You can also use the **Terminal** tab inside RStudio, but check that it is PowerShell and not CMD.
+
+Native Windows also needs **Git for Windows**. Check it with:
+
+```powershell
+git --version
+```
+
+If the command is not found, install it from [git-scm.com/downloads/win](https://git-scm.com/downloads/win) and **open a new PowerShell window** afterwards.
+:::
+
+## 0.3 Install Claude Code
+
+::: {.panel-tabset group="os"}
+## macOS
+
+Recommended (native installer):
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Alternatives, if the installer does not work:
+
+```bash
+# Homebrew
+brew install --cask claude-code
+
+# npm (requires Node.js 18 or later)
+npm install -g @anthropic-ai/claude-code
+```
+
+## Windows
+
+Recommended (native installer, in **PowerShell**):
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+Alternatives, if the installer does not work:
+
+```powershell
+# WinGet
+winget install Anthropic.ClaudeCode
+
+# npm (requires Node.js 18 or later)
+npm install -g @anthropic-ai/claude-code
+```
+
+If you prefer a Linux-like environment you can also use WSL and follow the macOS instructions inside it. This is optional, and the native installer is enough for this activity.
+:::
+
+Close and reopen the terminal, then check the installation:
+
+```bash
+claude --version
+```
+
+::: {.callout-tip collapse="true"}
+## Troubleshooting: "claude: command not found"
+
+::: {.panel-tabset group="os"}
+## macOS
+
+The installer places the program in `~/.local/bin`. Add it to your `PATH` and reload the shell:
+
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+## Windows
+
+Close **all** PowerShell windows and open a new one so the updated `PATH` is loaded. If it still fails, add `%USERPROFILE%\.local\bin` to your user `Path` variable (Start → "Edit environment variables for your account"). You can also run `claude doctor` once the command is found to diagnose the installation.
+:::
+:::
+
+## 0.4 Create the project folder and start Claude
+
+Each pair creates the folder `proyecto-airbnb/`, opens the terminal **inside it** and runs `claude`.
+
+::: {.panel-tabset group="os"}
+## macOS
+
+```bash
+mkdir ~/proyecto-airbnb
+cd ~/proyecto-airbnb
+mkdir data
+claude
+```
+
+## Windows
+
+```powershell
+mkdir $HOME\proyecto-airbnb
+cd $HOME\proyecto-airbnb
+mkdir data
+claude
+```
+:::
+
+The first time, your browser opens so you can **log in with your CUNEF account**. When you come back to the terminal, Claude Code is waiting for your first message.
+
+::: {.callout-note}
+## Useful commands inside Claude Code
+
+| Command | What it does |
+|-----------------|-------------------------------------------------------|
+| `/help` | Shows the available commands |
+| `/init` | Generates the `CLAUDE.md` project memory file |
+| `/clear` | Clears the conversation context (start a fresh task) |
+| `/agents` | Lists, creates and edits agents |
+| `/exit` or `Ctrl+C` twice | Leaves Claude Code |
+| `Shift+Tab` | Cycles through the permission modes |
+:::
+
+## 0.5 Get the data
+
+Go to [insideairbnb.com/get-the-data](https://insideairbnb.com/get-the-data/), find **Madrid** and download the files from the **most recent** snapshot: `listings.csv.gz`, `reviews.csv.gz` and `calendar.csv.gz`. Move them to the `data/` folder of your project:
+
+::: {.panel-tabset group="os"}
+## macOS
+
+```bash
+mv ~/Downloads/*.csv.gz ~/proyecto-airbnb/data/
+ls data/
+```
+
+## Windows
+
+```powershell
+Move-Item "$HOME\Downloads\*.csv.gz" "$HOME\proyecto-airbnb\data\"
+dir data
+```
+:::
+
+Do **not** unzip them: `readr` reads `.csv.gz` files directly.
+
+::: {.callout-tip}
+Alternatively, ask Claude to download the data for you (see the prompt in Step 1). If its network access is blocked, download the files manually as shown above. The URLs on the site change with every snapshot, so always take them from the web page.
+:::
+
+**Checkpoint 0**
+
+- [ ] `claude --version` prints a version number
+- [ ] You are logged in with your CUNEF account
+- [ ] `data/` contains the three `.csv.gz` files
+
+# Step 1 — Import and clean the data (20 min) {#step-1}
+
+## 1.1 Project memory with `/init`
+
+Inside Claude, run:
+
+```
+/init
+```
+
+Claude explores the folder and creates **`CLAUDE.md`**, a "memory" file that it reads at the start of every session. Open it in an editor and add the **course style rules**, for example:
+
+```markdown
+## Course conventions
+- Language: R with the tidyverse. Use readr to read files and janitor::clean_names().
+- Plots: ggplot2 with theme_minimal().
+- Code comments in Spanish.
+- Scripts live in scripts/, data in data/, figures in figuras/, reports in the project root.
+- Never modify the raw files in data/.
+```
+
+::: {.callout-note}
+Everything you put in `CLAUDE.md` applies to every later request, so you do not have to repeat the style in each prompt.
+:::
+
+## 1.2 First assignment: import and clean
+
+Give Claude this prompt (adapt it if you wish):
+
+> Download the Madrid data from Inside Airbnb (or use the files already in `data/`), import them with readr, apply `clean_names()`, convert `price` to a number, parse the dates with lubridate and join listings with reviews. Write it as a script in `scripts/01_import_clean.R`, run it and fix any errors.
+
+Claude writes the script, runs it and fixes failures. **You review** what it did. Check these typical pitfalls:
+
+- `price` comes as text such as `"$1,250.00"`. It should end up as a numeric column (`readr::parse_number()`).
+- The `reviews` table has **many rows per listing** (one per review). Joining it directly with `listings` multiplies rows. A sound approach is to **summarise the reviews per listing first** (number of reviews, date of the last review) and then join by `listing_id` = `id`.
+- Missing values, prices equal to 0 and extreme prices (outliers).
+- Which column holds the neighbourhood? In recent snapshots `neighbourhood` can be empty or inconsistent, while `neighbourhood_cleansed` is usually the reliable one.
+
+::: {.callout-tip}
+## Ask Claude to explain
+
+If you do not understand a line, ask: *"Explain what this block does and why you chose it."* Using Claude to learn is part of the exercise.
+:::
+
+## 1.3 Permission modes
+
+Claude Code asks for your supervision at different levels. Switch between them with **`Shift+Tab`**:
+
+| Mode | What Claude does |
+|-------------------|-------------------------------------------------------------|
+| **Default** | Asks permission before each action (editing a file, running a command). |
+| **Plan mode** | Only reads and **proposes a plan**; it does not touch anything. |
+| **Accept edits** | Applies file changes without asking, but still asks before anything else, such as running commands. |
+| **Auto mode** | Works autonomously. |
+
+::: {.callout-warning}
+On some Windows terminals `Shift+Tab` may not cycle modes. In that case try `Alt+M`, or start Claude with `claude --permission-mode plan`. Start in default mode. Use auto mode only when you are happy to review the result afterwards, and never on folders that contain anything you cannot afford to lose.
+:::
+
+**Exercise (2 min).** Switch to *plan mode* and ask: *"Plan how you would check the quality of the cleaned data."* Read the plan and then switch back to default mode.
+
+**Checkpoint 1**
+
+- [ ] `CLAUDE.md` exists and contains your course style rules
+- [ ] `scripts/01_import_clean.R` runs without errors
+- [ ] There is a clean, joined dataset (for example saved as `data/listings_clean.rds`)
+- [ ] You have tried the different permission modes
+
+# Step 2 — Create a skill (15 min) {#step-2}
+
+A **skill** is a "custom command": it packages instructions you use often so you do not have to repeat them. It is stored as text in `.claude/skills/<name>/SKILL.md`, which states its name, what it is for and the steps to follow. Once created, you run it by typing `/<name>`.
+
+## 2.1 Ask Claude to create `eda-report`
+
+> Create a skill called `eda-report` for exploratory data analysis of a cleaned dataset. Instructions it should include: use readr to read files; produce summaries of the variables, missing values and distributions; make plots with ggplot2 and theme_minimal; save the PNG files in `figuras/`; and finish the analysis with a summary of the 3 main findings.
+
+Then **open** `.claude/skills/eda-report/SKILL.md` and read it. It should look similar to this:
+
+````markdown
+---
+name: eda-report
+description: Exploratory data analysis (EDA) of a cleaned tabular dataset in R. Use when asked for an EDA, a data overview or an exploratory report.
+---
+
+# EDA report
+
+1. Use `readr` to read the data files (never base R `read.csv`).
+2. Summarise structure and quality: dimensions, variable types, missing values, duplicates.
+3. Describe the key variables: distributions of numeric variables and counts of categorical ones.
+4. Explore relationships with the target variable (for example, price against room type, neighbourhood and capacity).
+5. Make all plots with `ggplot2` and `theme_minimal()`. Save every plot as a PNG in `figuras/`.
+6. End with a summary of the **3 main findings**, each backed by a figure or a number.
+````
+
+::: {.callout-note}
+**Project vs. personal skills.** A skill in `.claude/skills/` of your project is available only in that project. To reuse it in *any* project, place it in your personal skills folder:
+
+::: {.panel-tabset group="os"}
+## macOS
+
+`~/.claude/skills/eda-report/SKILL.md`
+
+## Windows
+
+`%USERPROFILE%\.claude\skills\eda-report\SKILL.md`
+:::
+:::
+
+If Claude does not recognise `/eda-report` right away, restart the session (`/exit`, then `claude` again).
+
+**Checkpoint 2**
+
+- [ ] `.claude/skills/eda-report/SKILL.md` exists and you have read and understood it
+- [ ] Typing `/eda-report` appears in the list of commands
+
+# Step 3 — Use agents (20 min) {#step-3}
+
+An **agent** is an instance of Claude with its **own context** and a specific assignment. Several can run at once, which splits the work without saturating the main conversation.
+
+## 3.1 The built-in Explore agent
+
+Ask Claude to use it:
+
+> Use the Explore agent to go through the project and summarise what it contains: files, scripts, data and the current state of the analysis.
+
+Observe that the main conversation only receives the **summary**, not every file the agent read.
+
+## 3.2 Create your own `reviewer` agent
+
+Run `/agents`, choose to create a new **project** agent, or simply ask Claude:
+
+> Create an agent called `reviewer` in `.claude/agents/reviewer.md`. Its role is a critical reviewer of data analyses. It must audit the model assumptions, the treatment of the data and the code. It should only read files, never modify them.
+
+The result is a file like this:
+
+````markdown
+---
+name: reviewer
+description: Critical reviewer of data analyses. Use it to audit model assumptions, data handling and code, and to get a second opinion that challenges the analysis.
+tools: Read, Grep, Glob
+---
+
+You are a sceptical senior data scientist reviewing a colleague's work. You never modify files.
+
+Review three areas:
+
+1. **Data treatment**: units and types, missing values, outliers, joins that duplicate rows, filters that remove data.
+2. **Model assumptions**: linearity, normality and constant variance of residuals, influential points, multicollinearity, choice of the response variable (price vs. log price).
+3. **Code**: correctness, reproducibility (paths, seeds), style and clarity.
+
+Return a prioritised list of problems (critical / important / minor), with the file and line, and one concrete suggestion for each. Do not praise; question.
+````
+
+## 3.3 Use it
+
+Reference the agent by name in your prompt:
+
+> Use the `reviewer` agent to audit `scripts/01_import_clean.R` and the cleaned dataset.
+
+Decide which of its remarks are valid and fix them. You will use the agent again in Step 4 to validate the model.
+
+**Checkpoint 3**
+
+- [ ] You used the Explore agent and read its summary
+- [ ] `.claude/agents/reviewer.md` exists
+- [ ] The reviewer audited your cleaning, and you applied at least one improvement
+
+# Step 4 — Solve the project and answer the question (20 min) {#step-4}
+
+Now you put everything together in a **reproducible** way.
+
+## 4.1 Exploration
+
+Run the skill on the clean data:
+
+```
+/eda-report
+```
+
+You should get an exploratory analysis with plots saved in `figuras/` and the 3 main findings.
+
+## 4.2 Model and answer
+
+Fit and interpret a model that answers the question:
+
+```r
+price ~ room_type + neighbourhood + accommodates
+```
+
+using `lm()` and the `broom` package (`tidy()`, `glance()`, `augment()`). Suggested prompt:
+
+> Fit `price ~ room_type + neighbourhood + accommodates` with `lm()` in `scripts/02_model.R`. Use broom to get the coefficients and the fit statistics. Interpret the main coefficients in plain language: how much more or less does each factor cost, holding the others fixed? Check the residual diagnostics.
+
+Then **validate** with your agent:
+
+> Use the `reviewer` agent to review the model: assumptions, treatment of outliers and whether using `log(price)` would be better. Report the problems and fix the important ones.
+
+::: {.callout-tip}
+## Things worth discussing
+
+- With `neighbourhood` the reference level is arbitrary, and with many levels the table is long. How do you present it clearly (for instance, the 10 most expensive and cheapest neighbourhoods)?
+- Is the residual distribution reasonable? What changes if the response is `log(price)`, and how does the interpretation of the coefficients change?
+- What does the *R²* tell you? Which important variables are **not** in this model?
+:::
+
+## 4.3 Communication: a reproducible report
+
+Put everything together in a Quarto document with the data, the plots from `/eda-report`, the model and the conclusion. Suggested prompt:
+
+> Create `informe.qmd` (Quarto) that answers *"What determines the price of an Airbnb listing in Madrid?"*. Include: a short description of the data and the cleaning, the figures from `figuras/`, the model with a table of coefficients and its interpretation, and a clear conclusion. It must run from scratch. Then render it to HTML.
+
+Render it from the terminal (or let Claude do it):
+
+```bash
+quarto render informe.qmd --to html
+```
+
+::: {.callout-note collapse="true"}
+## PDF output instead of HTML
+
+PDF needs a LaTeX distribution. The simplest way is TinyTeX, which Quarto installs for you:
+
+```bash
+quarto install tinytex
+quarto render informe.qmd --to pdf
+```
+
+If you have problems, HTML is perfectly valid.
+:::
+
+Open the result:
+
+::: {.panel-tabset group="os"}
+## macOS
+
+```bash
+open informe.html
+```
+
+## Windows
+
+```powershell
+start informe.html
+```
+:::
+
+Your report must **answer the question clearly**: state in a few sentences what drives the price and by how much.
+
+**Checkpoint 4**
+
+- [ ] `/eda-report` produced plots in `figuras/` and the 3 findings
+- [ ] The model is fitted, interpreted and validated by the `reviewer` agent
+- [ ] `informe.qmd` renders without errors to HTML (or PDF)
+- [ ] The conclusion answers the research question
+
+# Extra — Reproducibility with Git {#extra}
+
+Initialize a Git repository and make commits (ask Claude, or do it yourself):
+
+::: {.panel-tabset group="os"}
+## macOS
+
+```bash
+git init
+printf 'data/\n*.rds\n.Rproj.user/\n' > .gitignore
+git add .
+git commit -m "Airbnb Madrid analysis: cleaning, EDA, model and report"
+```
+
+The first time, macOS may offer to install the *Command Line Developer Tools*. Accept.
+
+## Windows
+
+```powershell
+git init
+Set-Content .gitignore "data/`n*.rds`n.Rproj.user/"
+git add .
+git commit -m "Airbnb Madrid analysis: cleaning, EDA, model and report"
+```
+
+This requires Git for Windows (see Step 0).
+:::
+
+If Git asks who you are, configure it once:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+::: {.callout-tip}
+We exclude `data/` from the repository because the files are large and can be downloaded again. That is why the cleaning script must be able to reproduce everything from the raw data.
+:::
+
+# Final deliverables checklist {#deliverables}
+
+Make sure your project folder contains:
+
+```text
+proyecto-airbnb/
+├── CLAUDE.md                      # project memory with the course style
+├── .claude/
+│   ├── skills/eda-report/SKILL.md # your skill
+│   └── agents/reviewer.md         # your agent
+├── data/                          # raw data (not in Git)
+├── scripts/
+│   ├── 01_import_clean.R
+│   └── 02_model.R
+├── figuras/                       # PNGs from /eda-report
+├── informe.qmd                    # reproducible report
+└── informe.html (or .pdf)         # rendered report
+```
+
+- [ ] The report answers the question clearly
+- [ ] The analysis can be reproduced from the raw data
+- [ ] The `reviewer` agent was used and its relevant remarks were addressed
+- [ ] *(Extra)* The project is in a Git repository with commits
+
+Submit the work following the instructions of your lecturer.
+
+# Quick troubleshooting {#troubleshooting}
+
+| Problem | What to try |
+|-------------------------------|---------------------------------------------------------|
+| `claude: command not found` | Open a new terminal; check your `PATH` (see Step 0). |
+| The browser does not open for login | Copy the URL that Claude shows in the terminal and paste it into your browser. |
+| An R package is missing | Ask Claude to install it with `install.packages()` and approve the command. |
+| `Rscript` is not found | Make sure R is installed and on the `PATH`, or ask Claude to run the code through RStudio's R. On Windows, reopen PowerShell after installing R. |
+| `quarto` is not found | Update RStudio, or install Quarto from quarto.org and reopen the terminal. |
+| Claude gets stuck or repeats itself | Press `Esc` to interrupt, rephrase the request more precisely or use `/clear` to start a clean context. |
+| You do not trust a change | Use plan mode, or ask: *"Explain what you changed and why."* |
+
+::: {.callout-important}
+## Good practice
+
+- Be specific in your prompts: say which file, which variables and what output you expect.
+- Review **every** script before accepting its results.
+- Keep `CLAUDE.md` short and useful.
+- Never paste personal passwords or keys into the conversation.
+:::

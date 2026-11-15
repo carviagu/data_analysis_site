@@ -6,9 +6,7 @@ format:
 
 ## Books and manuals
 
-The course content is based on the book **R for Data Science** from Wickham and Grolemund. Units and content has been ordered following 2017 edition, while some content has been updated with the 2023 edition. 
-
-You can find the full online book [here](https://r4ds.had.co.nz).
+The course content can be found in the following online book that has all the information of the units. You can find it [here](https://carviagu.github.io/data_analysis_book/).)
 
 In addition, *tidyverse* documentation for the different packages used in the course has been referenced. [Tidyverse site](https://www.tidyverse.org)
 

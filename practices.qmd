@@ -1,0 +1,15 @@
+---
+title: "Course practices"
+listing:
+  contents: practices
+  type: grid
+  sort: "date desc"
+  categories: true
+  fields: [image, title, description, date, categories, reading-time]
+  sort-ui: false
+  filter-ui: true
+page-layout: full
+title-block-banner: true
+---
+
+Hands-on activities for the course. Pick a practice below to open the step-by-step guide.
